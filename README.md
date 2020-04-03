@@ -40,10 +40,6 @@ Then update your MySQL database by typing:
 You can now run the program by typing:
 * ```$ dotnet run```
 
-## _API Documentation_
-
-
-
 ## _Known Bugs_
 
 _No known bugs at this time._
