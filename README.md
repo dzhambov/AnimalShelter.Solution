@@ -11,13 +11,10 @@ _This is an API project for a local animal shelter. The API will list all vailab
 | Specification             | Input 	|     Output      |
 |-------------------------	|-------	|----------------	|
 |A user enters an animal search | GET "http://localhost:5000/api/animals"   | User sees a list of all animals in the shelter |
-|A user enters an animal search by details | GET "http://localhost:5000/api/animals?name=Lulu"   | User sees the animal with name Lulu |
+|A user enters an animal search by details (Id, name, type, age, gender) | GET "http://localhost:5000/api/animals?name=Lulu"   | User sees the animal with name Lulu |
 |A user is able to post animal | POST "http://localhost:5000/api/animals/3"   | User sees the animal under Id #3 |
 |A user is able to put animal | PUT "http://localhost:5000/api/animals/3"   | User sees the animal under Id #3 |
-|A user is able to delete animal | DELETE "http://localhost:5000/api/animals/3"   | User deletes animal under Id #2 and it can't see it any more |
-
-
-
+|A user is able to delete animal | DELETE "http://localhost:5000/api/animals/2"   | User deletes animal under Id #2 and it can't see it any more |
 
 
 ## _Setup/Installation Requirements_
@@ -39,6 +36,22 @@ Then update your MySQL database by typing:
 
 You can now run the program by typing:
 * ```$ dotnet run```
+
+To install Swagger navigate to AnimalsShelter directory and type:
+* ```$ dotnet add AnimalShelter.csproj package NSwag.AspNetCore```
+
+Navigate to Startup.cs file and in the ConfigureServices method add:
+* ```// Register the Swagger services
+    services.AddSwaggerDocument();```
+
+In the Configure method add:
+* ``` // Register the Swagger generator and the Swagger UI middlewares
+    app.UseOpenApi();
+    app.UseSwaggerUi3();```
+
+To launch the app navigate to:
+* ```http://localhost:5000/swagger to view the Swagger UI```
+
 
 ## _Known Bugs_
 
